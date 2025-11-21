@@ -1,7 +1,7 @@
 // src/App.tsx (o tu archivo raíz de aplicación)
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/organisms/Navbar';
-import { HomePage } from './components/templates/HomePage';
+import { Homelayout } from './components/templates/Homelayout';
 
 function App() {
     return (
@@ -10,7 +10,7 @@ function App() {
             <main>
                 <Routes>
                     {/* Ruta para el index.html / Inicio */}
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="/" element={<Homelayout />} />
 
                     {/* Rutas futuras (para que el Navbar funcione) */}
                     <Route path="/catalogo" element={<div>Catálogo (Pronto)</div>} />

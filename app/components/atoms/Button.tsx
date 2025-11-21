@@ -1,10 +1,11 @@
-// src/components/atoms/Button/Button.tsx
 import React from 'react';
-// Asume que Tailwind CSS o clases de style.css están disponibles
+// Importa el Link de React Router para usar el botón en rutas
+import { Link } from 'react-router-dom';
 
 interface ButtonProps {
     children: React.ReactNode;
-    variant: 'primary' | 'outline'; // Corresponde a .btn-primary y .btn-outline
+    variant: 'primary' | 'outline';
+    to?: string; // Para usar como enlace
     onClick?: () => void;
     className?: string;
 }
@@ -12,19 +13,27 @@ interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
                                                   children,
                                                   variant,
+                                                  to,
                                                   onClick,
                                                   className = ''
                                               }) => {
-    // Estas clases deben replicar los estilos de tu style.css
-    const baseClasses = "btn px-6 py-3 rounded-[25px] font-bold transition-all duration-300";
+    const baseClasses = "btn inline-flex items-center justify-center px-6 py-3 rounded-[25px] text-center text-lg font-bold cursor-pointer transition-all duration-300";
     let variantClasses = '';
 
     if (variant === 'primary') {
-        // Estilo: Gradiente Azul/Verde
+        // Estilo: Gradiente Azul/Verde (clase definida en app.css)
         variantClasses = 'btn-primary text-black';
     } else { // 'outline'
-        // Estilo: Borde Azul Eléctrico
-        variantClasses = 'btn-outline border-2 border-[#1E90FF] text-[#1E90FF]';
+        // Estilo: Borde Azul Eléctrico (clase definida en app.css)
+        variantClasses = 'btn-outline border-2 text-[#1E90FF]';
+    }
+
+    if (to) {
+        return (
+            <Link to={to} className={`${baseClasses} ${variantClasses} ${className}`} onClick={onClick}>
+                {children}
+            </Link>
+        );
     }
 
     return (

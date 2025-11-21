@@ -1,12 +1,16 @@
-// src/components/organisms/FeaturesSection/FeaturesSection.tsx
 import React from 'react';
+// 🚨 Importación relativa ajustada
 import { FeatureCard } from '../molecules/FeatureCard';
+
 export const FeaturesSection: React.FC = () => {
     return (
-        <div className="features-section p-16">
-            <div className="container mx-auto">
-                <h2 className="text-center mb-12 text-4xl">¿Por qué elegir Level-Up Gamer?</h2>
-                <div className="features-grid grid grid-cols-3 gap-8">
+        // .features-section con fondo azul semitransparente
+        <div className="features-section py-16">
+            <div className="container mx-auto max-w-7xl">
+                <h2 className="text-center mb-12 text-4xl text-[#39FF14]">
+                    ¿Por qué elegir Level-Up Gamer?
+                </h2>
+                <div className="features-grid grid grid-cols-1 md:grid-cols-3 gap-8">
                     <FeatureCard
                         icon="fas fa-star"
                         title="Sistema Level-Up"
